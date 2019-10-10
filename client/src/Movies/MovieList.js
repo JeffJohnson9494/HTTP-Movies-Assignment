@@ -9,20 +9,16 @@ export default class MovieList extends Component {
       movies: []
     };
   }
-
+//getting movies data from api/movies
   componentDidMount() {
     // fill me in with an HTTP Request to `localhost:5000/api/movies`
-    axios
-      .get("http://localhost:5000/api/movies")
-      .then(res => {
-        
+    axios.get("http://localhost:5000/api/movies").then(res => {
         this.setState({ movies: res.data });
-      })
-      .catch(err => {
+      }).catch(err => {
         console.log(err);
       });
   }
-
+//mapping over movies and putting them into movieDetails with the key set to movie.id
   render() {
     return (
       <div className="movie-list">
@@ -33,7 +29,7 @@ export default class MovieList extends Component {
     );
   }
 }
-
+//simple function component linking to the movieCard component using movie.id dynamic to call the right info
 function MovieDetails({ movie }) {
   return (
     <Link to={`/movies/${movie.id}`}>

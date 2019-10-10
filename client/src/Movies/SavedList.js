@@ -8,19 +8,16 @@ export default class SavedList extends Component {
   render() {
     return (
       <div className="saved-list">
-        <h3>Saved Movies:</h3>
-        {this.props.list.map(movie => {
-          return (
-            <NavLink to={`/movies/${movie.id}`}key={movie.id}activeClassName="saved-active">
-              <span className="saved-movie">{movie.title}</span>
-            </NavLink>
-          );
-        })}
+        
+        <h3>Your Saved Movies!</h3>
+      
         <div className="button-wrapper">
           <div className="home-button">
+            {/*Link to add route which is the NewMovie Component*/}
             <Link to="/movie/add">Add New Movie</Link>
           </div>
           <div className="home-button">
+            {/*Link to home which is MovieList Component*/}
             <Link to="/">Home</Link>
           </div>
         </div>

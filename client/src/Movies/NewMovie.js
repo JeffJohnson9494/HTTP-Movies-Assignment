@@ -13,7 +13,7 @@ class NewMovie extends React.Component {
       error: ""
     };
   }
-
+//input changes
   onInputChange = type => {
     this.setState({ success: false });
     if (type.target.dataset.name === "title") {
@@ -34,7 +34,7 @@ class NewMovie extends React.Component {
       });
     }
   };
-
+//posting allllllllll of the information to api/movies with catch error if the form is not completed fully
   addToList = e => {
     e.preventDefault();
     (this.state.director && this.state.title && this.state.stars && this.state.meta &&
@@ -52,9 +52,10 @@ class NewMovie extends React.Component {
   };
 
   render() {
+    //throwing success or error and adding the data accordingly (join used for the stars)
     return (
       <div>
-        {this.state.success && <h1>Successfully added movie!</h1>}
+        {this.state.success && <h1>Movie Added</h1>}
         {this.state.error && this.state.error}
         <form>
           <input type="text"value={this.state.title}onChange={this.onInputChange}data-name="title"placeholder="Title"/>
